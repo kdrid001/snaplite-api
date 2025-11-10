@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SnapLite Feed</title>
+</head>
+<body style="font-family: sans-serif; max-width: 600px; margin: auto;">
+  <h1>SnapLite Feed</h1>
+  <div id="feed"></div>
+
+  <script>
+    fetch("/feed")
+      .then(r => r.json())
+      .then(posts => {
+        const feed = document.getElementById("feed");
+        posts.forEach(p => {
+          const card = document.createElement("div");
+          card.style.marginBottom = "20px";
+          card.innerHTML = `
+            <h3>${p.username}</h3>
+            <p>${p.caption}</p>
+            ${
+              p.media_url.endsWith(".mp4") || p.media_url.endsWith(".mov")
+                ? `<video width="100%" controls src="${p.media_url}"></video>`
+                : `<img width="100%" src="${p.media_url}" />`
+            }
+            <hr/>
+          `;
+          feed.appendChild(card);
+        });
+      });
+  </script>
+</body>
+</html>
