@@ -1,0 +1,9 @@
+venv/              # ignores virtual environment (machine specific)
+__pycache__/       # ignores Python bytecode cache folders
+*.pyc              # ignores compiled Python files
+uploads/*          # ignores all uploaded media
+!.gitkeep          # keeps the empty uploads/.gitkeep files
+.env               # ignores any environment variable files (API keys)
+.DS_Store          # ignores macOS Finder metadata
+
+

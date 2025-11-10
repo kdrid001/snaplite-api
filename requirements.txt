@@ -1,0 +1,12 @@
+# FastAPI web framework
+fastapi>=0.110
+
+# Uvicorn ASGI server
+uvicorn[standard]>=0.30
+
+# Data validation and schema
+pydantic>=2,<3
+
+# File uploads (multipart/form-data)
+python-multipart>=0.0.9
+
